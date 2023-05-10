@@ -8,23 +8,23 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <Container
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        flexWrap: "wrap",
-        gap: "20px",
-      }}
-    >
-      <BrowserRouter>
-        <Header />
+    <BrowserRouter>
+      <Header />
+      <Container
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: "20px",
+        }}
+      >
         <Routes>
           <Route path="/" element={<Cards />}></Route>
           <Route path="detailPoke/:id" element={<Detail />}></Route>
           <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
-      </BrowserRouter>
-    </Container>
+      </Container>
+    </BrowserRouter>
   );
 }
 

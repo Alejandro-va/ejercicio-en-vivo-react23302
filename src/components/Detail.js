@@ -21,11 +21,14 @@ const Detail = (pok) => {
     <>
       {pokemon && (
         <Card style={{ width: "18rem" }}>
+          <Card.Header className="text-center">
+            <h1> {pokemon.name}</h1>
+          </Card.Header>
           <Card.Img
             variant="top"
             src={pokemon.sprites.other.dream_world.front_default}
           />
-          <Card.Body>
+          <Card.Body variant="bottom">
             <Card.Title>{pokemon.name}</Card.Title>
             <Card.Text>
               Weight: {pokemon.weight} kg

@@ -38,7 +38,7 @@ const Cards = () => {
       });
       setPokemon(await Promise.all(newPokemons));
     };
-    <Detail pok={pokemon} />;
+
     getPokemons();
   }, []);
 
