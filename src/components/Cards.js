@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Detail from "./Detail";
 
 const Cards = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -36,7 +38,7 @@ const Cards = () => {
       });
       setPokemon(await Promise.all(newPokemons));
     };
-
+    <Detail pok={pokemon} />;
     getPokemons();
   }, []);
 
@@ -50,16 +52,18 @@ const Cards = () => {
             }}
             key={el.id}
           >
-            <Card.Header className="text-center">
-              <h1> {el.name}</h1>
-            </Card.Header>
-            <Card.Img variant="top" src={el.urlImg} />
-            <Card.Body>
-              <Card.Title style={{ alignSelf: "flex-end" }}>
-                Specie: {el.species}
-              </Card.Title>
-              <Card.Text></Card.Text>
-            </Card.Body>
+            <Link to={`/detailPoke/${el.id}`}>
+              <Card.Header className="text-center">
+                <h1> {el.name}</h1>
+              </Card.Header>
+              <Card.Img variant="top" src={el.urlImg} />
+              <Card.Body>
+                <Card.Title style={{ alignSelf: "flex-end" }}>
+                  Specie: {el.species}
+                </Card.Title>
+                <Card.Text></Card.Text>
+              </Card.Body>
+            </Link>
           </Card>
         );
       })}
